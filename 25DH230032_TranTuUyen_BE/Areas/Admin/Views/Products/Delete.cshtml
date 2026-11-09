@@ -1,0 +1,23 @@
+﻿@model _25DH230032_TranTuUyen_BE.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Xóa Sản Phẩm </h2>
+
+<h3> Bạn có chắc sẽ xóa sản phẩm này ko ?  </h3>
+
+@Html.Partial("PVProductInfo", Model)
+
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        @Html.ActionLink("Xóa ", "Edit", new { id = Model.ProductID },
+            new { @class = "btn btn-primary " })
+        @Html.ActionLink("Quay lại danh sách", "Index", null,
+            new { @class = "btn btn-primary " })
+    </div>
+</div>
+

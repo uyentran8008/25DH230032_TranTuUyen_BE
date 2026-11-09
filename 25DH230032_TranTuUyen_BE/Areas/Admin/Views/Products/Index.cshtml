@@ -1,0 +1,69 @@
+﻿@model IEnumerable<_25DH230032_TranTuUyen_BE.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<head>
+    <style>
+        img {
+            height: 150px;
+            max-width: 150px;
+        }
+    </style>
+</head>
+
+<h2 class=" bg-success"> Danh Sách Sản Phẩm  </h2>
+
+
+<table class=" table bg-info col-lg-12  col-sm  ">
+    <tr>
+         <th class=" bg-success col-md-2">
+     Hình ảnh
+ </th>
+        <th class=" bg-success col-md-3">
+            Tên Sản Phẩm
+        </th>
+        <th class=" bg-success col-md-2">
+            Mô Tả
+        </th>
+        <th class=" bg-success col-md-2">
+            Đơn Giá
+        </th>
+       
+        <th class=" bg-success col-md-2">
+            Danh Mục
+        </th>
+        <th class=" bg-success col-md-4"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                <img src="~/Content/images/@item.ProductImage" style="width: 50px; height: auto;" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.ProductID }, new { @class = "btn btn-primary btn-sm" }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.ProductID }, new { @class = "btn btn-primary btn-sm" }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.ProductID }, new { @class = "btn btn-primary btn-sm" })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="form-group">
+    <div class="col-md-offset-8 col-md-4">
+        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+</div>

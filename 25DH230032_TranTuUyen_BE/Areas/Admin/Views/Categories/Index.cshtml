@@ -1,0 +1,35 @@
+﻿@model IEnumerable<_25DH230032_TranTuUyen_BE.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class=" bg-success"> Danh Sach danh muc  </h2>
+
+<p>
+    @Html.ActionLink("thêm mới ", "Create", null , new {@class ="btn btn-primary"})
+</p>
+<table class="table bg-info  col-lg-8">
+    <tr>
+        <th class=" bg-warning col-lg-5">
+            @* @Html.DisplayNameFor(model => model.CategoryName)  *@
+            Tên Danh Mục 
+        </th>
+        <th  class=" bg-warning col-lg-3"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.ActionLink(" Sửa ", "Edit", new { id=item.CategoryID }, new { @class = "btn btn-primary btn-sm"  }) |
+          
+            @Html.ActionLink("Xóa ", "Delete", new { id=item.CategoryID }, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+}
+
+</table>

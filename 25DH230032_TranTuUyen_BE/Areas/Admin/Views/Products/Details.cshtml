@@ -1,0 +1,13 @@
+﻿@model _25DH230032_TranTuUyen_BE.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="bg-success" style="padding: 10px; color: white;">CHI TIẾT SẢN PHẨM</h2>
+
+<div class="container-fluid">
+    <!-- Gọi Partial View chứa thông tin chi tiết và ảnh sản phẩm -->
+    @Html.Partial("PVProductInfo", Model)
+</div>

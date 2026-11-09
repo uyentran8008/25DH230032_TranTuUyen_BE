@@ -1,0 +1,43 @@
+﻿@model _25DH230032_TranTuUyen_BE.Models.Product
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- Cột hiển thị hình ảnh sản phẩm -->
+        <div class="col-md-4 text-center">
+            @if (!string.IsNullOrEmpty(Model.ProductImage))
+            {
+                <img src="~/Content/images/@Model.ProductImage" alt="@Model.ProductName" style="height: 250px; max-width: 250px; border: 1px solid #ddd; padding: 5px;" />
+            }
+            else
+            {
+                <span>Không có ảnh</span>
+            }
+        </div>
+
+        <!-- Cột hiển thị thông tin chi tiết -->
+        <div class="col-md-8">
+            <dl class="dl-horizontal">
+                <dt>Tên sản phẩm</dt>
+                <dd>@Html.DisplayFor(model => model.ProductName)</dd>
+
+                <dt>Mô tả</dt>
+                <dd>@Html.DisplayFor(model => model.ProductDescription)</dd>
+
+                <dt>Đơn giá</dt>
+                <dd>@Html.DisplayFor(model => model.ProductPrice)</dd>
+
+                <dt>Danh mục</dt>
+                <dd>@Html.DisplayFor(model => model.Category.CategoryName)</dd>
+            </dl>
+
+            <!-- Khu vực nút bấm đặt ngoài dl để chuẩn cấu trúc -->
+            <div class="form-group" style="margin-top: 20px;">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Sửa", "Edit", new { id = Model.ProductID }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-default btn-sm" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
